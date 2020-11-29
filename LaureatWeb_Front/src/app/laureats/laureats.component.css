@@ -1,0 +1,99 @@
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #f5f5f5;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+.colboutton {
+  margin-left: 9px;
+  margin-bottom: 9px;
+  display: block;
+  margin: auto;
+}
+
+
+mat-button-toggle-group{
+  margin-left: 10px;
+  border-color: #e1fff1;
+
+
+}
+
+mat-button-toggle {
+  background-color: #3c4fbc;
+  color: white;
+}
+
+.btn-secondary{
+  background-color: #3c4fbc;
+  color: white;
+}
+
+/*
+.mat-form-field{
+  width:140px;
+}
+*/
+
+
+@media (max-width: 1200px){
+  mat-card{
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+.side-menu{
+  background-color:beige;
+    width: 15%;
+    height: 100%;
+    float: left;
+}
+
+.search-input{
+  width: 100%;
+  padding: 15px;
+}

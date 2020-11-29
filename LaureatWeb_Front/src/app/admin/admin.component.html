@@ -1,0 +1,185 @@
+<mat-card *ngIf="currentUser!=null && ( currentUser.role=='admin' || currentUser.role=='mdb')"  role="group">
+
+  <br>
+  <br>
+
+
+  <h1 style="text-align: center">Gestion des laureats:</h1>
+
+
+  <br>
+  <div>
+<div style="width: 70%;margin-left: 16%;" >
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Etudiants Inscrits"> 
+      <div  *ngFor="let avancement of avancementsList">
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + avancement.photo + ')'}"></div>
+            <mat-card-title>{{avancement.nom}} {{avancement.prenom}}</mat-card-title>
+           </mat-card-header>
+          <mat-card-content>
+            <br>
+            <p style="margin-left: 2%;margin-top: 2%;">
+              Description :<br>
+              {{avancement.description}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="editer(avancement)">Editer</button>
+            <button mat-button (click)="detail(avancement)">Détail</button>
+            <button mat-button (click)="historique(avancement)">Historique</button>
+          </mat-card-actions>
+    
+    
+        </mat-card>
+    
+        <br>
+    
+        <laureat-detailles *ngIf="avancement.detailAffiche" [dernierAvancement]="avancement" ></laureat-detailles>
+    
+        <app-edit-laureat *ngIf="avancement.editionAffiche" [dernierAvancement]="avancement.id"></app-edit-laureat>
+    
+        <app-historique-laureat *ngIf="avancement.historiqueAffiche" [dernierAvancementId]="avancement.id"></app-historique-laureat>
+    
+        <br>
+      </div>
+    </mat-tab>
+    <mat-tab label="Etudiants réinscrits"> 
+      <div  *ngFor="let avancement of listEtudReinscrit">
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + avancement.photo + ')'}"></div>
+            <mat-card-title>{{avancement.nom}} {{avancement.prenom}}</mat-card-title></mat-card-header>
+          <mat-card-content>
+            <br>
+            <p style="margin-left: 2%;margin-top: 2%;">
+              Description :<br>
+              {{avancement.description}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="editer(avancement)">Editer</button>
+            <button mat-button (click)="detail(avancement)">Détail</button>
+            <button mat-button (click)="historique(avancement)">Historique</button>
+          </mat-card-actions>
+    
+    
+        </mat-card>
+    
+        <br>
+    
+        <laureat-detailles *ngIf="avancement.detailAffiche" [dernierAvancement]="avancement" ></laureat-detailles>
+    
+        <app-edit-laureat *ngIf="avancement.editionAffiche" [dernierAvancement]="avancement.id"></app-edit-laureat>
+    
+        <app-historique-laureat *ngIf="avancement.historiqueAffiche" [dernierAvancementId]="avancement.id"></app-historique-laureat>
+    
+        <br>
+      </div>  
+    </mat-tab>
+    <mat-tab label="Etudiants accéptés"> 
+      <div  *ngFor="let avancement of listEtudAccepte">
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + avancement.photo + ')'}"></div>
+            <mat-card-title>{{avancement.nom}} {{avancement.prenom}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <br>
+            <p style="margin-left: 2%;margin-top: 2%;">
+              Description :<br>
+              {{avancement.description}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="editer(avancement)">Editer</button>
+            <button mat-button (click)="detail(avancement)">Détail</button>
+            <button mat-button (click)="historique(avancement)">Historique</button>
+          </mat-card-actions>
+    
+    
+        </mat-card>
+    
+        <br>
+    
+        <laureat-detailles *ngIf="avancement.detailAffiche" [dernierAvancement]="avancement" ></laureat-detailles>
+    
+        <app-edit-laureat *ngIf="avancement.editionAffiche" [dernierAvancement]="avancement.id"></app-edit-laureat>
+    
+        <app-historique-laureat *ngIf="avancement.historiqueAffiche" [dernierAvancementId]="avancement.id"></app-historique-laureat>
+    
+        <br>
+      </div>  
+    </mat-tab>
+  </mat-tab-group>
+</div>
+</div>
+  
+
+
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+</mat-card>
+
+<mat-card *ngIf="!currentUser || ( currentUser.role!='admin' && currentUser.role!='mdb')" >
+
+  <br>
+  <br>
+
+
+  <h1 style="text-align: center">Gestion des laureats:</h1>
+  <br>
+
+  <mat-card class="example-card" >
+
+    <mat-card-content>
+      <p>   Vous devez d'abord vous connecter en tant qu'administrateur ou membre du bureau des lauréats.</p>
+    </mat-card-content>
+
+
+
+  </mat-card>
+
+  <br>
+</mat-card>
+
+
+

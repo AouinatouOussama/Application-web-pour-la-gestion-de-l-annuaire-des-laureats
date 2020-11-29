@@ -1,0 +1,40 @@
+
+
+<mat-card>
+
+  <mat-card-header >
+
+    <mat-card-title>Editer Avancement</mat-card-title>
+
+  </mat-card-header>
+
+  <mat-card-content>
+
+
+    <mat-form-field>
+      <mat-select placeholder="Etat Avancement" [(ngModel)] = "etat">
+        <mat-option value="" >Avancement</mat-option>
+        <mat-option *ngFor="let ele of ['accepté','rejeté','information(s) manquante(s)']" [value]="ele">{{ele}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Détail/Motif:" [(ngModel)] = "motif">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="modifierAvancement()">Modifier</button>
+
+
+  </mat-card-content>
+
+
+
+
+
+
+
+
+
+
+</mat-card>
+

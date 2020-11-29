@@ -1,0 +1,66 @@
+
+<mat-card class="example-card">
+
+  <mat-card-header >
+
+    <mat-card-title>Détail</mat-card-title>
+
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      Nom : {{dernierAvancement.nom}}
+    </p>
+    <p>
+      Prénom : {{dernierAvancement.prenom}}
+    </p>
+    <p>
+      Date d'inscription : {{dernierAvancement.dateinscription}}
+    </p>
+    <p>
+      Description : {{dernierAvancement.description}}
+    </p>
+    <p>
+    Email : {{dernierAvancement.email}}
+    </p>
+    <p>
+      Telephone : {{dernierAvancement.telephone}}
+    </p>
+    <p>
+      Promotion : {{dernierAvancement.promotion}}
+    </p>
+    <p>
+      Secteur : {{dernierAvancement.secteur}}
+    </p>
+    <p>
+      Province : {{dernierAvancement.province}}
+    </p>
+    <div *ngIf="organismes != undefined && organismes.length > 0">
+      <h2>Historique des organismes</h2>
+    <table mat-table [dataSource]="organismes" class="mat-elevation-z8">
+      <ng-container matColumnDef="id_index">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id_index}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="ref_organisation">
+        <th mat-header-cell *matHeaderCellDef> ref_organisation </th>
+        <td mat-cell *matCellDef="let element"> {{element.ref_organisation}} </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="date_debut">
+        <th mat-header-cell *matHeaderCellDef> date_debut </th>
+        <td mat-cell *matCellDef="let element"> {{element.date_debut}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="intitule_de_poste">
+        <th mat-header-cell *matHeaderCellDef> intitule_de_poste </th>
+        <td mat-cell *matCellDef="let element"> {{element.intitule_de_poste}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  </mat-card-content>
+
+</mat-card>
